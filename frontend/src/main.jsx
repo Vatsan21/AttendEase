@@ -349,46 +349,46 @@ function App() {
       {tab==="subjects" && <>
         <SubjectForm onSaved={load}/>
         <div className="panel">
-  <h3>Current subjects</h3>
+          <h3>Current subjects</h3>
 
-  {subjects.map(s => (
-    <div className="subjectRow" key={s.id}>
-      <div>
-        <strong>{s.name}</strong>
-        <span>
-          {s.code || "No code"} · {s.class_type}
-        </span>
-      </div>
-
-      <span>
-        {s.weekly_schedule.map(x => weekdayNames[x]).join(", ") || "No schedule"}
-      </span>
-
-      <button
-        className="deleteBtn"
-        onClick={async () => {
-          const confirmed = window.confirm(
-            `Delete ${s.name}? This will also delete its attendance records.`
-          );
-
-          if (!confirmed) return;
-
-          try {
-            await request(`/subjects/${s.id}`, {
-              method: "DELETE"
-            });
-
-            await load();
-          } catch (e) {
-            alert(e.message);
-          }
-        }}
-      >
-        Delete
-      </button>
-    </div>
-  ))}
-</div>
+          {subjects.map(s => (
+            <div className="subjectRow" key={s.id}>
+              <div>
+                <strong>{s.name}</strong>
+                <span>
+                  {s.code || "No code"} · {s.class_type}
+                </span>
+              </div>
+        
+              <span>
+                {s.weekly_schedule.map(x => weekdayNames[x]).join(", ") || "No schedule"}
+              </span>
+        
+              <button
+                className="deleteBtn"
+                onClick={async () => {
+                  const confirmed = window.confirm(
+                    `Delete ${s.name}? This will also delete its attendance records.`
+                  );
+        
+                  if (!confirmed) return;
+        
+                  try {
+                    await request(`/subjects/${s.id}`, {
+                      method: "DELETE"
+                    });
+        
+                    await load();
+                  } catch (e) {
+                    alert(e.message);
+                  }
+                }}
+              >
+                Delete
+              </button>
+            </div>
+          ))}
+        </div>
       </>}
       {tab==="simulator" && <Simulator subjects={subjects}/>}
     </main>
