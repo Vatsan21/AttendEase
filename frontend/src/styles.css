@@ -54,11 +54,11 @@ form>button,.panel>button,.actions button{
 }
 button.secondary{background:#eef0f5;color:#283044}
 .deleteBtn {
-  border: 0;
+  border: none;
   background: #fee2e2;
   color: #b91c1c;
-  padding: 8px 12px;
-  border-radius: 9px;
+  padding: 8px 14px;
+  border-radius: 8px;
   font-weight: 700;
 }
 
