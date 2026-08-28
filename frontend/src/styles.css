@@ -69,7 +69,14 @@ button.secondary{background:#eef0f5;color:#283044}
 .weekdays,.actions,.simRow{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
 button.day{border:1px solid #dce1e9;background:white;color:#5d6778;border-radius:10px;padding:9px 11px}
 button.day.active{background:#171c2a;color:white}
-.subjectRow{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-top:1px solid #edf0f4}
+.subjectRow{
+  display:grid;
+  grid-template-columns:1fr auto auto;
+  gap:16px;
+  align-items:center;
+  padding:13px 0;
+  border-top:1px solid #edf0f4;
+}
 .subjectRow>div{display:flex;flex-direction:column}.subjectRow span{font-size:12px;color:#7a8496}
 .projection{margin-top:16px;padding:16px;border-radius:12px;background:#f3f4f7;display:flex;gap:12px;justify-content:space-between}
 .projection.safe{background:#ebf9f0}.projection.borderline{background:#fff7e5}.projection.risk{background:#fff0f0}
